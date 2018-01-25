@@ -6,13 +6,14 @@
 module Azure::DataLakeAnalytics::Mgmt::V2016_11_01
   module Models
     #
-    # The parameters used to create a new compute policy.
+    # The parameters used to update a compute policy while updating a Data Lake
+    # Analytics account.
     #
-    class ComputePolicyAccountCreateParameters
+    class UpdateComputePolicyWithAccountParameters
 
       include MsRestAzure
 
-      # @return [String] The unique name of the policy to create
+      # @return [String] The unique name of the compute policy to update.
       attr_accessor :name
 
       # @return The AAD object identifier for the entity to create a policy
@@ -35,20 +36,18 @@ module Azure::DataLakeAnalytics::Mgmt::V2016_11_01
 
 
       #
-      # Mapper for ComputePolicyAccountCreateParameters class as Ruby Hash.
+      # Mapper for UpdateComputePolicyWithAccountParameters class as Ruby Hash.
       # This will be used for serialization/deserialization.
       #
       def self.mapper()
         {
-          client_side_validation: true,
           required: false,
-          serialized_name: 'ComputePolicyAccountCreateParameters',
+          serialized_name: 'UpdateComputePolicyWithAccountParameters',
           type: {
             name: 'Composite',
-            class_name: 'ComputePolicyAccountCreateParameters',
+            class_name: 'UpdateComputePolicyWithAccountParameters',
             model_properties: {
               name: {
-                client_side_validation: true,
                 required: true,
                 serialized_name: 'name',
                 type: {
@@ -56,23 +55,20 @@ module Azure::DataLakeAnalytics::Mgmt::V2016_11_01
                 }
               },
               object_id: {
-                client_side_validation: true,
-                required: true,
+                required: false,
                 serialized_name: 'properties.objectId',
                 type: {
                   name: 'String'
                 }
               },
               object_type: {
-                client_side_validation: true,
-                required: true,
+                required: false,
                 serialized_name: 'properties.objectType',
                 type: {
                   name: 'String'
                 }
               },
               max_degree_of_parallelism_per_job: {
-                client_side_validation: true,
                 required: false,
                 serialized_name: 'properties.maxDegreeOfParallelismPerJob',
                 constraints: {
@@ -83,7 +79,6 @@ module Azure::DataLakeAnalytics::Mgmt::V2016_11_01
                 }
               },
               min_priority_per_job: {
-                client_side_validation: true,
                 required: false,
                 serialized_name: 'properties.minPriorityPerJob',
                 constraints: {

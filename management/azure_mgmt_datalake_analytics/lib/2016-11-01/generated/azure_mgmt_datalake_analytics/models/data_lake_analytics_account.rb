@@ -13,64 +13,64 @@ module Azure::DataLakeAnalytics::Mgmt::V2016_11_01
 
       include MsRestAzure
 
-      # @return [DataLakeAnalyticsAccountStatus] the provisioning status of the
+      # @return [DataLakeAnalyticsAccountStatus] The provisioning status of the
       # Data Lake Analytics account. Possible values include: 'Failed',
       # 'Creating', 'Running', 'Succeeded', 'Patching', 'Suspending',
       # 'Resuming', 'Deleting', 'Deleted', 'Undeleting', 'Canceled'
       attr_accessor :provisioning_state
 
-      # @return [DataLakeAnalyticsAccountState] the state of the Data Lake
+      # @return [DataLakeAnalyticsAccountState] The state of the Data Lake
       # Analytics account. Possible values include: 'Active', 'Suspended'
       attr_accessor :state
 
-      # @return [DateTime] the account creation time.
+      # @return [DateTime] The account creation time.
       attr_accessor :creation_time
 
-      # @return [DateTime] the account last modified time.
+      # @return [DateTime] The account last modified time.
       attr_accessor :last_modified_time
 
-      # @return [String] the full CName endpoint for this account.
+      # @return [String] The full CName endpoint for this account.
       attr_accessor :endpoint
 
       # @return The unique identifier associated with this Data Lake Analytics
       # account.
       attr_accessor :account_id
 
-      # @return [String] the default data lake storage account associated with
+      # @return [String] The default data lake storage account associated with
       # this Data Lake Analytics account.
       attr_accessor :default_data_lake_store_account
 
-      # @return [Integer] the maximum supported degree of parallelism for this
+      # @return [Integer] The maximum supported degree of parallelism for this
       # account. Default value: 30 .
       attr_accessor :max_degree_of_parallelism
 
-      # @return [Integer] the number of days that job metadata is retained.
+      # @return [Integer] The number of days that job metadata is retained.
       # Default value: 30 .
       attr_accessor :query_store_retention
 
-      # @return [Integer] the maximum supported jobs running under the account
+      # @return [Integer] The maximum supported jobs running under the account
       # at the same time. Default value: 3 .
       attr_accessor :max_job_count
 
-      # @return [Integer] the system defined maximum supported degree of
+      # @return [Integer] The system defined maximum supported degree of
       # parallelism for this account, which restricts the maximum value of
-      # parallelism the user can set for the account..
+      # parallelism the user can set for the account.
       attr_accessor :system_max_degree_of_parallelism
 
-      # @return [Integer] the system defined maximum supported jobs running
+      # @return [Integer] The system defined maximum supported jobs running
       # under the account at the same time, which restricts the maximum number
       # of running jobs the user can set for the account.
       attr_accessor :system_max_job_count
 
-      # @return [Array<DataLakeStoreAccountInfo>] the list of Data Lake storage
-      # accounts associated with this account.
+      # @return [Array<AddDataLakeStoreWithAccountParameters>] The list of Data
+      # Lake Store accounts associated with this account.
       attr_accessor :data_lake_store_accounts
 
-      # @return [Array<StorageAccountInfo>] the list of Azure Blob storage
-      # accounts associated with this account.
+      # @return [Array<AddStorageAccountWithAccountParameters>] The list of
+      # Azure Blob storage accounts associated with this account.
       attr_accessor :storage_accounts
 
-      # @return [TierType] the commitment tier for the next month. Possible
+      # @return [TierType] The commitment tier for the next month. Possible
       # values include: 'Consumption', 'Commitment_100AUHours',
       # 'Commitment_500AUHours', 'Commitment_1000AUHours',
       # 'Commitment_5000AUHours', 'Commitment_10000AUHours',
@@ -78,7 +78,7 @@ module Azure::DataLakeAnalytics::Mgmt::V2016_11_01
       # 'Commitment_500000AUHours'
       attr_accessor :new_tier
 
-      # @return [TierType] the commitment tier in use for the current month.
+      # @return [TierType] The commitment tier in use for the current month.
       # Possible values include: 'Consumption', 'Commitment_100AUHours',
       # 'Commitment_500AUHours', 'Commitment_1000AUHours',
       # 'Commitment_5000AUHours', 'Commitment_10000AUHours',
@@ -97,20 +97,20 @@ module Azure::DataLakeAnalytics::Mgmt::V2016_11_01
       # 'Enabled', 'Disabled'
       attr_accessor :firewall_allow_azure_ips
 
-      # @return [Array<FirewallRule>] The list of firewall rules associated
-      # with this Data Lake Analytics account.
+      # @return [Array<CreateFirewallRuleWithAccountParameters>] The list of
+      # firewall rules associated with this Data Lake Analytics account.
       attr_accessor :firewall_rules
 
-      # @return [Integer] the maximum supported degree of parallelism per job
+      # @return [Integer] The maximum supported degree of parallelism per job
       # for this account.
       attr_accessor :max_degree_of_parallelism_per_job
 
-      # @return [Integer] the minimum supported priority per job for this
+      # @return [Integer] The minimum supported priority per job for this
       # account.
       attr_accessor :min_priority_per_job
 
-      # @return [Array<ComputePolicyAccountCreateParameters>] the list of
-      # compute policies to create in this account.
+      # @return [Array<CreateComputePolicyWithAccountParameters>] The list of
+      # compute policies associated with this account.
       attr_accessor :compute_policies
 
 
@@ -120,7 +120,6 @@ module Azure::DataLakeAnalytics::Mgmt::V2016_11_01
       #
       def self.mapper()
         {
-          client_side_validation: true,
           required: false,
           serialized_name: 'DataLakeAnalyticsAccount',
           type: {
@@ -128,7 +127,6 @@ module Azure::DataLakeAnalytics::Mgmt::V2016_11_01
             class_name: 'DataLakeAnalyticsAccount',
             model_properties: {
               id: {
-                client_side_validation: true,
                 required: false,
                 read_only: true,
                 serialized_name: 'id',
@@ -137,7 +135,6 @@ module Azure::DataLakeAnalytics::Mgmt::V2016_11_01
                 }
               },
               name: {
-                client_side_validation: true,
                 required: false,
                 read_only: true,
                 serialized_name: 'name',
@@ -146,7 +143,6 @@ module Azure::DataLakeAnalytics::Mgmt::V2016_11_01
                 }
               },
               type: {
-                client_side_validation: true,
                 required: false,
                 read_only: true,
                 serialized_name: 'type',
@@ -155,7 +151,6 @@ module Azure::DataLakeAnalytics::Mgmt::V2016_11_01
                 }
               },
               location: {
-                client_side_validation: true,
                 required: true,
                 serialized_name: 'location',
                 type: {
@@ -163,13 +158,11 @@ module Azure::DataLakeAnalytics::Mgmt::V2016_11_01
                 }
               },
               tags: {
-                client_side_validation: true,
                 required: false,
                 serialized_name: 'tags',
                 type: {
                   name: 'Dictionary',
                   value: {
-                      client_side_validation: true,
                       required: false,
                       serialized_name: 'StringElementType',
                       type: {
@@ -179,7 +172,6 @@ module Azure::DataLakeAnalytics::Mgmt::V2016_11_01
                 }
               },
               provisioning_state: {
-                client_side_validation: true,
                 required: false,
                 read_only: true,
                 serialized_name: 'properties.provisioningState',
@@ -189,7 +181,6 @@ module Azure::DataLakeAnalytics::Mgmt::V2016_11_01
                 }
               },
               state: {
-                client_side_validation: true,
                 required: false,
                 read_only: true,
                 serialized_name: 'properties.state',
@@ -199,7 +190,6 @@ module Azure::DataLakeAnalytics::Mgmt::V2016_11_01
                 }
               },
               creation_time: {
-                client_side_validation: true,
                 required: false,
                 read_only: true,
                 serialized_name: 'properties.creationTime',
@@ -208,7 +198,6 @@ module Azure::DataLakeAnalytics::Mgmt::V2016_11_01
                 }
               },
               last_modified_time: {
-                client_side_validation: true,
                 required: false,
                 read_only: true,
                 serialized_name: 'properties.lastModifiedTime',
@@ -217,7 +206,6 @@ module Azure::DataLakeAnalytics::Mgmt::V2016_11_01
                 }
               },
               endpoint: {
-                client_side_validation: true,
                 required: false,
                 read_only: true,
                 serialized_name: 'properties.endpoint',
@@ -226,7 +214,6 @@ module Azure::DataLakeAnalytics::Mgmt::V2016_11_01
                 }
               },
               account_id: {
-                client_side_validation: true,
                 required: false,
                 read_only: true,
                 serialized_name: 'properties.accountId',
@@ -235,7 +222,6 @@ module Azure::DataLakeAnalytics::Mgmt::V2016_11_01
                 }
               },
               default_data_lake_store_account: {
-                client_side_validation: true,
                 required: true,
                 serialized_name: 'properties.defaultDataLakeStoreAccount',
                 type: {
@@ -243,7 +229,6 @@ module Azure::DataLakeAnalytics::Mgmt::V2016_11_01
                 }
               },
               max_degree_of_parallelism: {
-                client_side_validation: true,
                 required: false,
                 serialized_name: 'properties.maxDegreeOfParallelism',
                 default_value: 30,
@@ -255,7 +240,6 @@ module Azure::DataLakeAnalytics::Mgmt::V2016_11_01
                 }
               },
               query_store_retention: {
-                client_side_validation: true,
                 required: false,
                 serialized_name: 'properties.queryStoreRetention',
                 default_value: 30,
@@ -268,7 +252,6 @@ module Azure::DataLakeAnalytics::Mgmt::V2016_11_01
                 }
               },
               max_job_count: {
-                client_side_validation: true,
                 required: false,
                 serialized_name: 'properties.maxJobCount',
                 default_value: 3,
@@ -280,7 +263,6 @@ module Azure::DataLakeAnalytics::Mgmt::V2016_11_01
                 }
               },
               system_max_degree_of_parallelism: {
-                client_side_validation: true,
                 required: false,
                 read_only: true,
                 serialized_name: 'properties.systemMaxDegreeOfParallelism',
@@ -289,7 +271,6 @@ module Azure::DataLakeAnalytics::Mgmt::V2016_11_01
                 }
               },
               system_max_job_count: {
-                client_side_validation: true,
                 required: false,
                 read_only: true,
                 serialized_name: 'properties.systemMaxJobCount',
@@ -298,41 +279,36 @@ module Azure::DataLakeAnalytics::Mgmt::V2016_11_01
                 }
               },
               data_lake_store_accounts: {
-                client_side_validation: true,
                 required: true,
                 serialized_name: 'properties.dataLakeStoreAccounts',
                 type: {
                   name: 'Sequence',
                   element: {
-                      client_side_validation: true,
                       required: false,
-                      serialized_name: 'DataLakeStoreAccountInfoElementType',
+                      serialized_name: 'AddDataLakeStoreWithAccountParametersElementType',
                       type: {
                         name: 'Composite',
-                        class_name: 'DataLakeStoreAccountInfo'
+                        class_name: 'AddDataLakeStoreWithAccountParameters'
                       }
                   }
                 }
               },
               storage_accounts: {
-                client_side_validation: true,
                 required: false,
                 serialized_name: 'properties.storageAccounts',
                 type: {
                   name: 'Sequence',
                   element: {
-                      client_side_validation: true,
                       required: false,
-                      serialized_name: 'StorageAccountInfoElementType',
+                      serialized_name: 'AddStorageAccountWithAccountParametersElementType',
                       type: {
                         name: 'Composite',
-                        class_name: 'StorageAccountInfo'
+                        class_name: 'AddStorageAccountWithAccountParameters'
                       }
                   }
                 }
               },
               new_tier: {
-                client_side_validation: true,
                 required: false,
                 serialized_name: 'properties.newTier',
                 type: {
@@ -341,7 +317,6 @@ module Azure::DataLakeAnalytics::Mgmt::V2016_11_01
                 }
               },
               current_tier: {
-                client_side_validation: true,
                 required: false,
                 read_only: true,
                 serialized_name: 'properties.currentTier',
@@ -351,7 +326,6 @@ module Azure::DataLakeAnalytics::Mgmt::V2016_11_01
                 }
               },
               firewall_state: {
-                client_side_validation: true,
                 required: false,
                 serialized_name: 'properties.firewallState',
                 type: {
@@ -360,7 +334,6 @@ module Azure::DataLakeAnalytics::Mgmt::V2016_11_01
                 }
               },
               firewall_allow_azure_ips: {
-                client_side_validation: true,
                 required: false,
                 serialized_name: 'properties.firewallAllowAzureIps',
                 type: {
@@ -369,24 +342,21 @@ module Azure::DataLakeAnalytics::Mgmt::V2016_11_01
                 }
               },
               firewall_rules: {
-                client_side_validation: true,
                 required: false,
                 serialized_name: 'properties.firewallRules',
                 type: {
                   name: 'Sequence',
                   element: {
-                      client_side_validation: true,
                       required: false,
-                      serialized_name: 'FirewallRuleElementType',
+                      serialized_name: 'CreateFirewallRuleWithAccountParametersElementType',
                       type: {
                         name: 'Composite',
-                        class_name: 'FirewallRule'
+                        class_name: 'CreateFirewallRuleWithAccountParameters'
                       }
                   }
                 }
               },
               max_degree_of_parallelism_per_job: {
-                client_side_validation: true,
                 required: false,
                 serialized_name: 'properties.maxDegreeOfParallelismPerJob',
                 constraints: {
@@ -397,7 +367,6 @@ module Azure::DataLakeAnalytics::Mgmt::V2016_11_01
                 }
               },
               min_priority_per_job: {
-                client_side_validation: true,
                 required: false,
                 serialized_name: 'properties.minPriorityPerJob',
                 constraints: {
@@ -408,18 +377,16 @@ module Azure::DataLakeAnalytics::Mgmt::V2016_11_01
                 }
               },
               compute_policies: {
-                client_side_validation: true,
                 required: false,
                 serialized_name: 'properties.computePolicies',
                 type: {
                   name: 'Sequence',
                   element: {
-                      client_side_validation: true,
                       required: false,
-                      serialized_name: 'ComputePolicyAccountCreateParametersElementType',
+                      serialized_name: 'CreateComputePolicyWithAccountParametersElementType',
                       type: {
                         name: 'Composite',
-                        class_name: 'ComputePolicyAccountCreateParameters'
+                        class_name: 'CreateComputePolicyWithAccountParameters'
                       }
                   }
                 }

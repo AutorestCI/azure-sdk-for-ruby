@@ -13,10 +13,10 @@ module Azure::DataLakeAnalytics::Mgmt::V2016_11_01
       include MsRestAzure
 
       include MsRest::JSONable
-      # @return [Array<ComputePolicy>] the results of the list operation
+      # @return [Array<ComputePolicy>] The results of the list operation.
       attr_accessor :value
 
-      # @return [String] the link (url) to the next page of results.
+      # @return [String] The link (url) to the next page of results.
       attr_accessor :next_link
 
       # return [Proc] with next page method call.
@@ -57,7 +57,6 @@ module Azure::DataLakeAnalytics::Mgmt::V2016_11_01
       #
       def self.mapper()
         {
-          client_side_validation: true,
           required: false,
           serialized_name: 'ComputePolicyListResult',
           type: {
@@ -65,14 +64,12 @@ module Azure::DataLakeAnalytics::Mgmt::V2016_11_01
             class_name: 'ComputePolicyListResult',
             model_properties: {
               value: {
-                client_side_validation: true,
                 required: false,
                 read_only: true,
                 serialized_name: 'value',
                 type: {
                   name: 'Sequence',
                   element: {
-                      client_side_validation: true,
                       required: false,
                       serialized_name: 'ComputePolicyElementType',
                       type: {
@@ -83,7 +80,6 @@ module Azure::DataLakeAnalytics::Mgmt::V2016_11_01
                 }
               },
               next_link: {
-                client_side_validation: true,
                 required: false,
                 read_only: true,
                 serialized_name: 'nextLink',

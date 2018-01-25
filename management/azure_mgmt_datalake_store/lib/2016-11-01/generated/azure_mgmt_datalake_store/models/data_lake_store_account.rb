@@ -6,7 +6,7 @@
 module Azure::DataLakeStore::Mgmt::V2016_11_01
   module Models
     #
-    # Data Lake Store account information
+    # Data Lake Store account information.
     #
     class DataLakeStoreAccount < Resource
 
@@ -15,23 +15,23 @@ module Azure::DataLakeStore::Mgmt::V2016_11_01
       # @return [EncryptionIdentity] The Key Vault encryption identity, if any.
       attr_accessor :identity
 
-      # @return [DataLakeStoreAccountStatus] the provisioning status of the
+      # @return [DataLakeStoreAccountStatus] The provisioning status of the
       # Data Lake Store account. Possible values include: 'Failed', 'Creating',
       # 'Running', 'Succeeded', 'Patching', 'Suspending', 'Resuming',
       # 'Deleting', 'Deleted', 'Undeleting', 'Canceled'
       attr_accessor :provisioning_state
 
-      # @return [DataLakeStoreAccountState] the state of the Data Lake Store
+      # @return [DataLakeStoreAccountState] The state of the Data Lake Store
       # account. Possible values include: 'Active', 'Suspended'
       attr_accessor :state
 
-      # @return [DateTime] the account creation time.
+      # @return [DateTime] The account creation time.
       attr_accessor :creation_time
 
-      # @return [DateTime] the account last modified time.
+      # @return [DateTime] The account last modified time.
       attr_accessor :last_modified_time
 
-      # @return [String] the full CName endpoint for this account.
+      # @return [String] The full CName endpoint for this account.
       attr_accessor :endpoint
 
       # @return The unique identifier associated with this Data Lake Store
@@ -39,11 +39,11 @@ module Azure::DataLakeStore::Mgmt::V2016_11_01
       attr_accessor :account_id
 
       # @return [EncryptionState] The current state of encryption for this Data
-      # Lake store account. Possible values include: 'Enabled', 'Disabled'
+      # Lake Store account. Possible values include: 'Enabled', 'Disabled'
       attr_accessor :encryption_state
 
       # @return [EncryptionProvisioningState] The current state of encryption
-      # provisioning for this Data Lake store account. Possible values include:
+      # provisioning for this Data Lake Store account. Possible values include:
       # 'Creating', 'Succeeded'
       attr_accessor :encryption_provisioning_state
 
@@ -51,44 +51,45 @@ module Azure::DataLakeStore::Mgmt::V2016_11_01
       attr_accessor :encryption_config
 
       # @return [FirewallState] The current state of the IP address firewall
-      # for this Data Lake store account. Possible values include: 'Enabled',
+      # for this Data Lake Store account. Possible values include: 'Enabled',
       # 'Disabled'
       attr_accessor :firewall_state
-
-      # @return [Array<FirewallRule>] The list of firewall rules associated
-      # with this Data Lake store account.
-      attr_accessor :firewall_rules
-
-      # @return [TrustedIdProviderState] The current state of the trusted
-      # identity provider feature for this Data Lake store account. Possible
-      # values include: 'Enabled', 'Disabled'
-      attr_accessor :trusted_id_provider_state
-
-      # @return [Array<TrustedIdProvider>] The list of trusted identity
-      # providers associated with this Data Lake store account.
-      attr_accessor :trusted_id_providers
-
-      # @return [String] the default owner group for all new folders and files
-      # created in the Data Lake Store account.
-      attr_accessor :default_group
-
-      # @return [TierType] the commitment tier to use for next month. Possible
-      # values include: 'Consumption', 'Commitment_1TB', 'Commitment_10TB',
-      # 'Commitment_100TB', 'Commitment_500TB', 'Commitment_1PB',
-      # 'Commitment_5PB'
-      attr_accessor :new_tier
-
-      # @return [TierType] the commitment tier in use for the current month.
-      # Possible values include: 'Consumption', 'Commitment_1TB',
-      # 'Commitment_10TB', 'Commitment_100TB', 'Commitment_500TB',
-      # 'Commitment_1PB', 'Commitment_5PB'
-      attr_accessor :current_tier
 
       # @return [FirewallAllowAzureIpsState] The current state of allowing or
       # disallowing IPs originating within Azure through the firewall. If the
       # firewall is disabled, this is not enforced. Possible values include:
       # 'Enabled', 'Disabled'
       attr_accessor :firewall_allow_azure_ips
+
+      # @return [Array<CreateFirewallRuleWithAccountParameters>] The list of
+      # firewall rules associated with this Data Lake Store account.
+      attr_accessor :firewall_rules
+
+      # @return [TrustedIdProviderState] The current state of the trusted
+      # identity provider feature for this Data Lake Store account. Possible
+      # values include: 'Enabled', 'Disabled'
+      attr_accessor :trusted_id_provider_state
+
+      # @return [Array<CreateTrustedIdProviderWithAccountParameters>] The list
+      # of trusted identity providers associated with this Data Lake Store
+      # account.
+      attr_accessor :trusted_id_providers
+
+      # @return [String] The default owner group for all new folders and files
+      # created in the Data Lake Store account.
+      attr_accessor :default_group
+
+      # @return [TierType] The commitment tier to use for next month. Possible
+      # values include: 'Consumption', 'Commitment_1TB', 'Commitment_10TB',
+      # 'Commitment_100TB', 'Commitment_500TB', 'Commitment_1PB',
+      # 'Commitment_5PB'
+      attr_accessor :new_tier
+
+      # @return [TierType] The commitment tier in use for the current month.
+      # Possible values include: 'Consumption', 'Commitment_1TB',
+      # 'Commitment_10TB', 'Commitment_100TB', 'Commitment_500TB',
+      # 'Commitment_1PB', 'Commitment_5PB'
+      attr_accessor :current_tier
 
 
       #
@@ -97,7 +98,6 @@ module Azure::DataLakeStore::Mgmt::V2016_11_01
       #
       def self.mapper()
         {
-          client_side_validation: true,
           required: false,
           serialized_name: 'DataLakeStoreAccount',
           type: {
@@ -105,7 +105,6 @@ module Azure::DataLakeStore::Mgmt::V2016_11_01
             class_name: 'DataLakeStoreAccount',
             model_properties: {
               id: {
-                client_side_validation: true,
                 required: false,
                 read_only: true,
                 serialized_name: 'id',
@@ -114,7 +113,6 @@ module Azure::DataLakeStore::Mgmt::V2016_11_01
                 }
               },
               name: {
-                client_side_validation: true,
                 required: false,
                 read_only: true,
                 serialized_name: 'name',
@@ -123,7 +121,6 @@ module Azure::DataLakeStore::Mgmt::V2016_11_01
                 }
               },
               type: {
-                client_side_validation: true,
                 required: false,
                 read_only: true,
                 serialized_name: 'type',
@@ -132,7 +129,6 @@ module Azure::DataLakeStore::Mgmt::V2016_11_01
                 }
               },
               location: {
-                client_side_validation: true,
                 required: true,
                 serialized_name: 'location',
                 type: {
@@ -140,13 +136,11 @@ module Azure::DataLakeStore::Mgmt::V2016_11_01
                 }
               },
               tags: {
-                client_side_validation: true,
                 required: false,
                 serialized_name: 'tags',
                 type: {
                   name: 'Dictionary',
                   value: {
-                      client_side_validation: true,
                       required: false,
                       serialized_name: 'StringElementType',
                       type: {
@@ -156,7 +150,6 @@ module Azure::DataLakeStore::Mgmt::V2016_11_01
                 }
               },
               identity: {
-                client_side_validation: true,
                 required: false,
                 serialized_name: 'identity',
                 type: {
@@ -165,7 +158,6 @@ module Azure::DataLakeStore::Mgmt::V2016_11_01
                 }
               },
               provisioning_state: {
-                client_side_validation: true,
                 required: false,
                 read_only: true,
                 serialized_name: 'properties.provisioningState',
@@ -175,7 +167,6 @@ module Azure::DataLakeStore::Mgmt::V2016_11_01
                 }
               },
               state: {
-                client_side_validation: true,
                 required: false,
                 read_only: true,
                 serialized_name: 'properties.state',
@@ -185,7 +176,6 @@ module Azure::DataLakeStore::Mgmt::V2016_11_01
                 }
               },
               creation_time: {
-                client_side_validation: true,
                 required: false,
                 read_only: true,
                 serialized_name: 'properties.creationTime',
@@ -194,7 +184,6 @@ module Azure::DataLakeStore::Mgmt::V2016_11_01
                 }
               },
               last_modified_time: {
-                client_side_validation: true,
                 required: false,
                 read_only: true,
                 serialized_name: 'properties.lastModifiedTime',
@@ -203,7 +192,6 @@ module Azure::DataLakeStore::Mgmt::V2016_11_01
                 }
               },
               endpoint: {
-                client_side_validation: true,
                 required: false,
                 read_only: true,
                 serialized_name: 'properties.endpoint',
@@ -212,7 +200,6 @@ module Azure::DataLakeStore::Mgmt::V2016_11_01
                 }
               },
               account_id: {
-                client_side_validation: true,
                 required: false,
                 read_only: true,
                 serialized_name: 'properties.accountId',
@@ -221,7 +208,6 @@ module Azure::DataLakeStore::Mgmt::V2016_11_01
                 }
               },
               encryption_state: {
-                client_side_validation: true,
                 required: false,
                 serialized_name: 'properties.encryptionState',
                 type: {
@@ -230,7 +216,6 @@ module Azure::DataLakeStore::Mgmt::V2016_11_01
                 }
               },
               encryption_provisioning_state: {
-                client_side_validation: true,
                 required: false,
                 read_only: true,
                 serialized_name: 'properties.encryptionProvisioningState',
@@ -240,7 +225,6 @@ module Azure::DataLakeStore::Mgmt::V2016_11_01
                 }
               },
               encryption_config: {
-                client_side_validation: true,
                 required: false,
                 serialized_name: 'properties.encryptionConfig',
                 type: {
@@ -249,7 +233,6 @@ module Azure::DataLakeStore::Mgmt::V2016_11_01
                 }
               },
               firewall_state: {
-                client_side_validation: true,
                 required: false,
                 serialized_name: 'properties.firewallState',
                 type: {
@@ -257,25 +240,30 @@ module Azure::DataLakeStore::Mgmt::V2016_11_01
                   module: 'FirewallState'
                 }
               },
+              firewall_allow_azure_ips: {
+                required: false,
+                serialized_name: 'properties.firewallAllowAzureIps',
+                type: {
+                  name: 'Enum',
+                  module: 'FirewallAllowAzureIpsState'
+                }
+              },
               firewall_rules: {
-                client_side_validation: true,
                 required: false,
                 serialized_name: 'properties.firewallRules',
                 type: {
                   name: 'Sequence',
                   element: {
-                      client_side_validation: true,
                       required: false,
-                      serialized_name: 'FirewallRuleElementType',
+                      serialized_name: 'CreateFirewallRuleWithAccountParametersElementType',
                       type: {
                         name: 'Composite',
-                        class_name: 'FirewallRule'
+                        class_name: 'CreateFirewallRuleWithAccountParameters'
                       }
                   }
                 }
               },
               trusted_id_provider_state: {
-                client_side_validation: true,
                 required: false,
                 serialized_name: 'properties.trustedIdProviderState',
                 type: {
@@ -284,24 +272,21 @@ module Azure::DataLakeStore::Mgmt::V2016_11_01
                 }
               },
               trusted_id_providers: {
-                client_side_validation: true,
                 required: false,
                 serialized_name: 'properties.trustedIdProviders',
                 type: {
                   name: 'Sequence',
                   element: {
-                      client_side_validation: true,
                       required: false,
-                      serialized_name: 'TrustedIdProviderElementType',
+                      serialized_name: 'CreateTrustedIdProviderWithAccountParametersElementType',
                       type: {
                         name: 'Composite',
-                        class_name: 'TrustedIdProvider'
+                        class_name: 'CreateTrustedIdProviderWithAccountParameters'
                       }
                   }
                 }
               },
               default_group: {
-                client_side_validation: true,
                 required: false,
                 serialized_name: 'properties.defaultGroup',
                 type: {
@@ -309,7 +294,6 @@ module Azure::DataLakeStore::Mgmt::V2016_11_01
                 }
               },
               new_tier: {
-                client_side_validation: true,
                 required: false,
                 serialized_name: 'properties.newTier',
                 type: {
@@ -318,22 +302,12 @@ module Azure::DataLakeStore::Mgmt::V2016_11_01
                 }
               },
               current_tier: {
-                client_side_validation: true,
                 required: false,
                 read_only: true,
                 serialized_name: 'properties.currentTier',
                 type: {
                   name: 'Enum',
                   module: 'TierType'
-                }
-              },
-              firewall_allow_azure_ips: {
-                client_side_validation: true,
-                required: false,
-                serialized_name: 'properties.firewallAllowAzureIps',
-                type: {
-                  name: 'Enum',
-                  module: 'FirewallAllowAzureIpsState'
                 }
               }
             }

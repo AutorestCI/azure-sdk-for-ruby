@@ -6,7 +6,7 @@
 module Azure::DataLakeAnalytics::Mgmt::V2016_11_01
   module Models
     #
-    # The Sub Resource model definition.
+    # The Resource model definition for a nested resource.
     #
     class SubResource
 
@@ -28,7 +28,6 @@ module Azure::DataLakeAnalytics::Mgmt::V2016_11_01
       #
       def self.mapper()
         {
-          client_side_validation: true,
           required: false,
           serialized_name: 'SubResource',
           type: {
@@ -36,7 +35,6 @@ module Azure::DataLakeAnalytics::Mgmt::V2016_11_01
             class_name: 'SubResource',
             model_properties: {
               id: {
-                client_side_validation: true,
                 required: false,
                 read_only: true,
                 serialized_name: 'id',
@@ -45,15 +43,14 @@ module Azure::DataLakeAnalytics::Mgmt::V2016_11_01
                 }
               },
               name: {
-                client_side_validation: true,
-                required: true,
+                required: false,
+                read_only: true,
                 serialized_name: 'name',
                 type: {
                   name: 'String'
                 }
               },
               type: {
-                client_side_validation: true,
                 required: false,
                 read_only: true,
                 serialized_name: 'type',

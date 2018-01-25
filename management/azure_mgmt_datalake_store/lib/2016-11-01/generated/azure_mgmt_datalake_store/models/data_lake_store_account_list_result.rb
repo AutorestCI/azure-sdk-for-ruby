@@ -13,11 +13,11 @@ module Azure::DataLakeStore::Mgmt::V2016_11_01
       include MsRestAzure
 
       include MsRest::JSONable
-      # @return [Array<DataLakeStoreAccountBasic>] the results of the list
-      # operation
+      # @return [Array<DataLakeStoreAccountBasic>] The results of the list
+      # operation.
       attr_accessor :value
 
-      # @return [String] the link (url) to the next page of results.
+      # @return [String] The link (url) to the next page of results.
       attr_accessor :next_link
 
       # return [Proc] with next page method call.
@@ -58,7 +58,6 @@ module Azure::DataLakeStore::Mgmt::V2016_11_01
       #
       def self.mapper()
         {
-          client_side_validation: true,
           required: false,
           serialized_name: 'DataLakeStoreAccountListResult',
           type: {
@@ -66,14 +65,12 @@ module Azure::DataLakeStore::Mgmt::V2016_11_01
             class_name: 'DataLakeStoreAccountListResult',
             model_properties: {
               value: {
-                client_side_validation: true,
                 required: false,
                 read_only: true,
                 serialized_name: 'value',
                 type: {
                   name: 'Sequence',
                   element: {
-                      client_side_validation: true,
                       required: false,
                       serialized_name: 'DataLakeStoreAccountBasicElementType',
                       type: {
@@ -84,7 +81,6 @@ module Azure::DataLakeStore::Mgmt::V2016_11_01
                 }
               },
               next_link: {
-                client_side_validation: true,
                 required: false,
                 read_only: true,
                 serialized_name: 'nextLink',

@@ -32,7 +32,7 @@ module Azure::DataLakeAnalytics::Mgmt::V2016_11_01
     # add or replace the compute policy.
     # @param compute_policy_name [String] The name of the compute policy to create
     # or update.
-    # @param parameters [ComputePolicyCreateOrUpdateParameters] Parameters supplied
+    # @param parameters [CreateOrUpdateComputePolicyParameters] Parameters supplied
     # to create or update the compute policy. The max degree of parallelism per job
     # property, min priority per job property, or both must be present.
     # @param custom_headers [Hash{String => String}] A hash of custom headers that
@@ -56,7 +56,7 @@ module Azure::DataLakeAnalytics::Mgmt::V2016_11_01
     # add or replace the compute policy.
     # @param compute_policy_name [String] The name of the compute policy to create
     # or update.
-    # @param parameters [ComputePolicyCreateOrUpdateParameters] Parameters supplied
+    # @param parameters [CreateOrUpdateComputePolicyParameters] Parameters supplied
     # to create or update the compute policy. The max degree of parallelism per job
     # property, min priority per job property, or both must be present.
     # @param custom_headers [Hash{String => String}] A hash of custom headers that
@@ -79,7 +79,7 @@ module Azure::DataLakeAnalytics::Mgmt::V2016_11_01
     # add or replace the compute policy.
     # @param compute_policy_name [String] The name of the compute policy to create
     # or update.
-    # @param parameters [ComputePolicyCreateOrUpdateParameters] Parameters supplied
+    # @param parameters [CreateOrUpdateComputePolicyParameters] Parameters supplied
     # to create or update the compute policy. The max degree of parallelism per job
     # property, min priority per job property, or both must be present.
     # @param [Hash{String => String}] A hash of custom headers that will be added
@@ -105,7 +105,7 @@ module Azure::DataLakeAnalytics::Mgmt::V2016_11_01
       request_headers['Content-Type'] = 'application/json; charset=utf-8'
 
       # Serialize Request
-      request_mapper = Azure::DataLakeAnalytics::Mgmt::V2016_11_01::Models::ComputePolicyCreateOrUpdateParameters.mapper()
+      request_mapper = Azure::DataLakeAnalytics::Mgmt::V2016_11_01::Models::CreateOrUpdateComputePolicyParameters.mapper()
       request_content = @client.serialize(request_mapper,  parameters)
       request_content = request_content != nil ? JSON.generate(request_content, quirks_mode: true) : nil
 
@@ -158,8 +158,8 @@ module Azure::DataLakeAnalytics::Mgmt::V2016_11_01
     # @param account_name [String] The name of the Data Lake Analytics account to
     # which to update the compute policy.
     # @param compute_policy_name [String] The name of the compute policy to update.
-    # @param parameters [ComputePolicy] Parameters supplied to update the compute
-    # policy.
+    # @param parameters [UpdateComputePolicyParameters] Parameters supplied to
+    # update the compute policy.
     # @param custom_headers [Hash{String => String}] A hash of custom headers that
     # will be added to the HTTP request.
     #
@@ -178,8 +178,8 @@ module Azure::DataLakeAnalytics::Mgmt::V2016_11_01
     # @param account_name [String] The name of the Data Lake Analytics account to
     # which to update the compute policy.
     # @param compute_policy_name [String] The name of the compute policy to update.
-    # @param parameters [ComputePolicy] Parameters supplied to update the compute
-    # policy.
+    # @param parameters [UpdateComputePolicyParameters] Parameters supplied to
+    # update the compute policy.
     # @param custom_headers [Hash{String => String}] A hash of custom headers that
     # will be added to the HTTP request.
     #
@@ -197,8 +197,8 @@ module Azure::DataLakeAnalytics::Mgmt::V2016_11_01
     # @param account_name [String] The name of the Data Lake Analytics account to
     # which to update the compute policy.
     # @param compute_policy_name [String] The name of the compute policy to update.
-    # @param parameters [ComputePolicy] Parameters supplied to update the compute
-    # policy.
+    # @param parameters [UpdateComputePolicyParameters] Parameters supplied to
+    # update the compute policy.
     # @param [Hash{String => String}] A hash of custom headers that will be added
     # to the HTTP request.
     #
@@ -221,7 +221,7 @@ module Azure::DataLakeAnalytics::Mgmt::V2016_11_01
       request_headers['Content-Type'] = 'application/json; charset=utf-8'
 
       # Serialize Request
-      request_mapper = Azure::DataLakeAnalytics::Mgmt::V2016_11_01::Models::ComputePolicy.mapper()
+      request_mapper = Azure::DataLakeAnalytics::Mgmt::V2016_11_01::Models::UpdateComputePolicyParameters.mapper()
       request_content = @client.serialize(request_mapper,  parameters)
       request_content = request_content != nil ? JSON.generate(request_content, quirks_mode: true) : nil
 

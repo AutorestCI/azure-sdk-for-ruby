@@ -12,7 +12,7 @@ module Azure::DataLakeAnalytics::Mgmt::V2016_11_01
 
       include MsRestAzure
 
-      # @return [String] the access token for the associated Azure Storage
+      # @return [String] The access token for the associated Azure Storage
       # Container.
       attr_accessor :access_token
 
@@ -23,7 +23,6 @@ module Azure::DataLakeAnalytics::Mgmt::V2016_11_01
       #
       def self.mapper()
         {
-          client_side_validation: true,
           required: false,
           serialized_name: 'SasTokenInfo',
           type: {
@@ -31,7 +30,6 @@ module Azure::DataLakeAnalytics::Mgmt::V2016_11_01
             class_name: 'SasTokenInfo',
             model_properties: {
               access_token: {
-                client_side_validation: true,
                 required: false,
                 read_only: true,
                 serialized_name: 'accessToken',

@@ -6,20 +6,20 @@
 module Azure::DataLakeStore::Mgmt::V2016_11_01
   module Models
     #
-    # Data Lake Store error details information
+    # Data Lake Store error details information.
     #
     class ErrorDetails
 
       include MsRestAzure
 
-      # @return [String] the HTTP status code or error code associated with
-      # this error
+      # @return [String] The HTTP status code or error code associated with
+      # this error.
       attr_accessor :code
 
-      # @return [String] the error message localized based on Accept-Language
+      # @return [String] The error message localized based on Accept-Language.
       attr_accessor :message
 
-      # @return [String] the target of the particular error (for example, the
+      # @return [String] The target of the particular error (for example, the
       # name of the property in error).
       attr_accessor :target
 
@@ -30,7 +30,6 @@ module Azure::DataLakeStore::Mgmt::V2016_11_01
       #
       def self.mapper()
         {
-          client_side_validation: true,
           required: false,
           serialized_name: 'ErrorDetails',
           type: {
@@ -38,7 +37,6 @@ module Azure::DataLakeStore::Mgmt::V2016_11_01
             class_name: 'ErrorDetails',
             model_properties: {
               code: {
-                client_side_validation: true,
                 required: false,
                 read_only: true,
                 serialized_name: 'code',
@@ -47,7 +45,6 @@ module Azure::DataLakeStore::Mgmt::V2016_11_01
                 }
               },
               message: {
-                client_side_validation: true,
                 required: false,
                 read_only: true,
                 serialized_name: 'message',
@@ -56,7 +53,6 @@ module Azure::DataLakeStore::Mgmt::V2016_11_01
                 }
               },
               target: {
-                client_side_validation: true,
                 required: false,
                 read_only: true,
                 serialized_name: 'target',

@@ -12,16 +12,16 @@ module Azure::DataLakeAnalytics::Mgmt::V2016_11_01
 
       include MsRestAzure
 
-      # @return [String] the unique identifier of the blob container.
+      # @return [String] The unique identifier of the blob container.
       attr_accessor :id
 
-      # @return [String] the name of the blob container.
+      # @return [String] The name of the blob container.
       attr_accessor :name
 
-      # @return [String] the type of the blob container.
+      # @return [String] The type of the blob container.
       attr_accessor :type
 
-      # @return [DateTime] the last modified time of the blob container.
+      # @return [DateTime] The last modified time of the blob container.
       attr_accessor :last_modified_time
 
 
@@ -31,7 +31,6 @@ module Azure::DataLakeAnalytics::Mgmt::V2016_11_01
       #
       def self.mapper()
         {
-          client_side_validation: true,
           required: false,
           serialized_name: 'StorageContainer',
           type: {
@@ -39,7 +38,6 @@ module Azure::DataLakeAnalytics::Mgmt::V2016_11_01
             class_name: 'StorageContainer',
             model_properties: {
               id: {
-                client_side_validation: true,
                 required: false,
                 read_only: true,
                 serialized_name: 'id',
@@ -48,7 +46,6 @@ module Azure::DataLakeAnalytics::Mgmt::V2016_11_01
                 }
               },
               name: {
-                client_side_validation: true,
                 required: false,
                 read_only: true,
                 serialized_name: 'name',
@@ -57,7 +54,6 @@ module Azure::DataLakeAnalytics::Mgmt::V2016_11_01
                 }
               },
               type: {
-                client_side_validation: true,
                 required: false,
                 read_only: true,
                 serialized_name: 'type',
@@ -66,7 +62,6 @@ module Azure::DataLakeAnalytics::Mgmt::V2016_11_01
                 }
               },
               last_modified_time: {
-                client_side_validation: true,
                 required: false,
                 read_only: true,
                 serialized_name: 'properties.lastModifiedTime',

@@ -6,7 +6,7 @@
 module Azure::DataLakeStore::Mgmt::V2016_11_01
   module Models
     #
-    # Data Lake Store account information to update
+    # Data Lake Store account information to update.
     #
     class DataLakeStoreAccountUpdateParameters
 
@@ -15,28 +15,16 @@ module Azure::DataLakeStore::Mgmt::V2016_11_01
       # @return [Hash{String => String}] Resource tags
       attr_accessor :tags
 
+      # @return [UpdateEncryptionConfig] Used for rotation of user managed Key
+      # Vault keys. Can only be used to rotate a user managed encryption Key
+      # Vault key.
+      attr_accessor :encryption_config
+
       # @return [FirewallState] The current state of the IP address firewall
-      # for this Data Lake store account. Disabling the firewall does not
+      # for this Data Lake Store account. Disabling the firewall does not
       # remove existing rules, they will just be ignored until the firewall is
       # re-enabled. Possible values include: 'Enabled', 'Disabled'
       attr_accessor :firewall_state
-
-      # @return [TrustedIdProviderState] The current state of the trusted
-      # identity provider feature for this Data Lake store account. Disabling
-      # trusted identity provider functionality does not remove the providers,
-      # they will just be ignored until this feature is re-enabled. Possible
-      # values include: 'Enabled', 'Disabled'
-      attr_accessor :trusted_id_provider_state
-
-      # @return [String] the default owner group for all new folders and files
-      # created in the Data Lake Store account.
-      attr_accessor :default_group
-
-      # @return [TierType] the commitment tier to use for next month. Possible
-      # values include: 'Consumption', 'Commitment_1TB', 'Commitment_10TB',
-      # 'Commitment_100TB', 'Commitment_500TB', 'Commitment_1PB',
-      # 'Commitment_5PB'
-      attr_accessor :new_tier
 
       # @return [FirewallAllowAzureIpsState] The current state of allowing or
       # disallowing IPs originating within Azure through the firewall. If the
@@ -44,10 +32,31 @@ module Azure::DataLakeStore::Mgmt::V2016_11_01
       # 'Enabled', 'Disabled'
       attr_accessor :firewall_allow_azure_ips
 
-      # @return [UpdateEncryptionConfig] Used for rotation of user managed Key
-      # Vault keys. Can only be used to rotate a user managed encryption Key
-      # Vault key.
-      attr_accessor :encryption_config
+      # @return [Array<UpdateFirewallRuleWithAccountParameters>] The list of
+      # firewall rules associated with this Data Lake Store account.
+      attr_accessor :firewall_rules
+
+      # @return [TrustedIdProviderState] The current state of the trusted
+      # identity provider feature for this Data Lake Store account. Disabling
+      # trusted identity provider functionality does not remove the providers,
+      # they will just be ignored until this feature is re-enabled. Possible
+      # values include: 'Enabled', 'Disabled'
+      attr_accessor :trusted_id_provider_state
+
+      # @return [Array<UpdateTrustedIdProviderWithAccountParameters>] The list
+      # of trusted identity providers associated with this Data Lake Store
+      # account.
+      attr_accessor :trusted_id_providers
+
+      # @return [String] The default owner group for all new folders and files
+      # created in the Data Lake Store account.
+      attr_accessor :default_group
+
+      # @return [TierType] The commitment tier to use for next month. Possible
+      # values include: 'Consumption', 'Commitment_1TB', 'Commitment_10TB',
+      # 'Commitment_100TB', 'Commitment_500TB', 'Commitment_1PB',
+      # 'Commitment_5PB'
+      attr_accessor :new_tier
 
 
       #
@@ -56,7 +65,6 @@ module Azure::DataLakeStore::Mgmt::V2016_11_01
       #
       def self.mapper()
         {
-          client_side_validation: true,
           required: false,
           serialized_name: 'DataLakeStoreAccountUpdateParameters',
           type: {
@@ -64,13 +72,11 @@ module Azure::DataLakeStore::Mgmt::V2016_11_01
             class_name: 'DataLakeStoreAccountUpdateParameters',
             model_properties: {
               tags: {
-                client_side_validation: true,
                 required: false,
                 serialized_name: 'tags',
                 type: {
                   name: 'Dictionary',
                   value: {
-                      client_side_validation: true,
                       required: false,
                       serialized_name: 'StringElementType',
                       type: {
@@ -79,8 +85,15 @@ module Azure::DataLakeStore::Mgmt::V2016_11_01
                   }
                 }
               },
+              encryption_config: {
+                required: false,
+                serialized_name: 'properties.encryptionConfig',
+                type: {
+                  name: 'Composite',
+                  class_name: 'UpdateEncryptionConfig'
+                }
+              },
               firewall_state: {
-                client_side_validation: true,
                 required: false,
                 serialized_name: 'properties.firewallState',
                 type: {
@@ -88,34 +101,7 @@ module Azure::DataLakeStore::Mgmt::V2016_11_01
                   module: 'FirewallState'
                 }
               },
-              trusted_id_provider_state: {
-                client_side_validation: true,
-                required: false,
-                serialized_name: 'properties.trustedIdProviderState',
-                type: {
-                  name: 'Enum',
-                  module: 'TrustedIdProviderState'
-                }
-              },
-              default_group: {
-                client_side_validation: true,
-                required: false,
-                serialized_name: 'properties.defaultGroup',
-                type: {
-                  name: 'String'
-                }
-              },
-              new_tier: {
-                client_side_validation: true,
-                required: false,
-                serialized_name: 'properties.newTier',
-                type: {
-                  name: 'Enum',
-                  module: 'TierType'
-                }
-              },
               firewall_allow_azure_ips: {
-                client_side_validation: true,
                 required: false,
                 serialized_name: 'properties.firewallAllowAzureIps',
                 type: {
@@ -123,13 +109,57 @@ module Azure::DataLakeStore::Mgmt::V2016_11_01
                   module: 'FirewallAllowAzureIpsState'
                 }
               },
-              encryption_config: {
-                client_side_validation: true,
+              firewall_rules: {
                 required: false,
-                serialized_name: 'properties.encryptionConfig',
+                serialized_name: 'properties.firewallRules',
                 type: {
-                  name: 'Composite',
-                  class_name: 'UpdateEncryptionConfig'
+                  name: 'Sequence',
+                  element: {
+                      required: false,
+                      serialized_name: 'UpdateFirewallRuleWithAccountParametersElementType',
+                      type: {
+                        name: 'Composite',
+                        class_name: 'UpdateFirewallRuleWithAccountParameters'
+                      }
+                  }
+                }
+              },
+              trusted_id_provider_state: {
+                required: false,
+                serialized_name: 'properties.trustedIdProviderState',
+                type: {
+                  name: 'Enum',
+                  module: 'TrustedIdProviderState'
+                }
+              },
+              trusted_id_providers: {
+                required: false,
+                serialized_name: 'properties.trustedIdProviders',
+                type: {
+                  name: 'Sequence',
+                  element: {
+                      required: false,
+                      serialized_name: 'UpdateTrustedIdProviderWithAccountParametersElementType',
+                      type: {
+                        name: 'Composite',
+                        class_name: 'UpdateTrustedIdProviderWithAccountParameters'
+                      }
+                  }
+                }
+              },
+              default_group: {
+                required: false,
+                serialized_name: 'properties.defaultGroup',
+                type: {
+                  name: 'String'
+                }
+              },
+              new_tier: {
+                required: false,
+                serialized_name: 'properties.newTier',
+                type: {
+                  name: 'Enum',
+                  module: 'TierType'
                 }
               }
             }

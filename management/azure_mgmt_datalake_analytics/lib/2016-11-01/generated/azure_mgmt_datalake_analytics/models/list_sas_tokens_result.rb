@@ -17,7 +17,7 @@ module Azure::DataLakeAnalytics::Mgmt::V2016_11_01
       # @return [Array<SasTokenInfo>]
       attr_accessor :value
 
-      # @return [String] the link (url) to the next page of results.
+      # @return [String] The link (url) to the next page of results.
       attr_accessor :next_link
 
       # return [Proc] with next page method call.
@@ -58,7 +58,6 @@ module Azure::DataLakeAnalytics::Mgmt::V2016_11_01
       #
       def self.mapper()
         {
-          client_side_validation: true,
           required: false,
           serialized_name: 'ListSasTokensResult',
           type: {
@@ -66,14 +65,12 @@ module Azure::DataLakeAnalytics::Mgmt::V2016_11_01
             class_name: 'ListSasTokensResult',
             model_properties: {
               value: {
-                client_side_validation: true,
                 required: false,
                 read_only: true,
                 serialized_name: 'value',
                 type: {
                   name: 'Sequence',
                   element: {
-                      client_side_validation: true,
                       required: false,
                       serialized_name: 'SasTokenInfoElementType',
                       type: {
@@ -84,7 +81,6 @@ module Azure::DataLakeAnalytics::Mgmt::V2016_11_01
                 }
               },
               next_link: {
-                client_side_validation: true,
                 required: false,
                 read_only: true,
                 serialized_name: 'nextLink',

@@ -32,8 +32,8 @@ module Azure::DataLakeStore::Mgmt::V2016_11_01
     # or replace the trusted identity provider.
     # @param trusted_id_provider_name [String] The name of the trusted identity
     # provider. This is used for differentiation of providers in the account.
-    # @param parameters [TrustedIdProvider] Parameters supplied to create or
-    # replace the trusted identity provider.
+    # @param parameters [CreateOrUpdateTrustedIdProviderParameters] Parameters
+    # supplied to create or replace the trusted identity provider.
     # @param custom_headers [Hash{String => String}] A hash of custom headers that
     # will be added to the HTTP request.
     #
@@ -55,8 +55,8 @@ module Azure::DataLakeStore::Mgmt::V2016_11_01
     # or replace the trusted identity provider.
     # @param trusted_id_provider_name [String] The name of the trusted identity
     # provider. This is used for differentiation of providers in the account.
-    # @param parameters [TrustedIdProvider] Parameters supplied to create or
-    # replace the trusted identity provider.
+    # @param parameters [CreateOrUpdateTrustedIdProviderParameters] Parameters
+    # supplied to create or replace the trusted identity provider.
     # @param custom_headers [Hash{String => String}] A hash of custom headers that
     # will be added to the HTTP request.
     #
@@ -77,8 +77,8 @@ module Azure::DataLakeStore::Mgmt::V2016_11_01
     # or replace the trusted identity provider.
     # @param trusted_id_provider_name [String] The name of the trusted identity
     # provider. This is used for differentiation of providers in the account.
-    # @param parameters [TrustedIdProvider] Parameters supplied to create or
-    # replace the trusted identity provider.
+    # @param parameters [CreateOrUpdateTrustedIdProviderParameters] Parameters
+    # supplied to create or replace the trusted identity provider.
     # @param [Hash{String => String}] A hash of custom headers that will be added
     # to the HTTP request.
     #
@@ -102,7 +102,7 @@ module Azure::DataLakeStore::Mgmt::V2016_11_01
       request_headers['Content-Type'] = 'application/json; charset=utf-8'
 
       # Serialize Request
-      request_mapper = Azure::DataLakeStore::Mgmt::V2016_11_01::Models::TrustedIdProvider.mapper()
+      request_mapper = Azure::DataLakeStore::Mgmt::V2016_11_01::Models::CreateOrUpdateTrustedIdProviderParameters.mapper()
       request_content = @client.serialize(request_mapper,  parameters)
       request_content = request_content != nil ? JSON.generate(request_content, quirks_mode: true) : nil
 

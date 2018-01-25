@@ -6,58 +6,55 @@
 module Azure::DataLakeAnalytics::Mgmt::V2016_11_01
   module Models
     #
-    # The Resource model definition for a nested resource with no required
-    # properties.
+    # An available operation for Data Lake Analytics.
     #
-    class OptionalSubResource
+    class Operation
 
       include MsRestAzure
 
-      # @return [String] Resource Id
-      attr_accessor :id
-
-      # @return [String] Resource name
+      # @return [String] The name of the operation.
       attr_accessor :name
 
-      # @return [String] Resource type
-      attr_accessor :type
+      # @return [OperationDisplay] The display information for the operation.
+      attr_accessor :display
+
+      # @return [OperationOrigin] The intended executor of the operation.
+      # Possible values include: 'user', 'system', 'user,system'
+      attr_accessor :origin
 
 
       #
-      # Mapper for OptionalSubResource class as Ruby Hash.
+      # Mapper for Operation class as Ruby Hash.
       # This will be used for serialization/deserialization.
       #
       def self.mapper()
         {
-          client_side_validation: true,
           required: false,
-          serialized_name: 'OptionalSubResource',
+          serialized_name: 'Operation',
           type: {
             name: 'Composite',
-            class_name: 'OptionalSubResource',
+            class_name: 'Operation',
             model_properties: {
-              id: {
-                client_side_validation: true,
+              name: {
                 required: false,
                 read_only: true,
-                serialized_name: 'id',
-                type: {
-                  name: 'String'
-                }
-              },
-              name: {
-                client_side_validation: true,
-                required: false,
                 serialized_name: 'name',
                 type: {
                   name: 'String'
                 }
               },
-              type: {
-                client_side_validation: true,
+              display: {
+                required: false,
+                serialized_name: 'display',
+                type: {
+                  name: 'Composite',
+                  class_name: 'OperationDisplay'
+                }
+              },
+              origin: {
                 required: false,
                 read_only: true,
-                serialized_name: 'type',
+                serialized_name: 'origin',
                 type: {
                   name: 'String'
                 }

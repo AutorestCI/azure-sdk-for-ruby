@@ -6,18 +6,17 @@
 module Azure::DataLakeAnalytics::Mgmt::V2016_11_01
   module Models
     #
-    # Storage account parameters for a storage account being added to a Data
-    # Lake Analytics account.
+    # The parameters used to add a new Azure Storage account.
     #
     class AddStorageAccountParameters
 
       include MsRestAzure
 
-      # @return [String] the access key associated with this Azure Storage
+      # @return [String] The access key associated with this Azure Storage
       # account that will be used to connect to it.
       attr_accessor :access_key
 
-      # @return [String] the optional suffix for the storage account.
+      # @return [String] The optional suffix for the storage account.
       attr_accessor :suffix
 
 
@@ -27,7 +26,6 @@ module Azure::DataLakeAnalytics::Mgmt::V2016_11_01
       #
       def self.mapper()
         {
-          client_side_validation: true,
           required: false,
           serialized_name: 'AddStorageAccountParameters',
           type: {
@@ -35,7 +33,6 @@ module Azure::DataLakeAnalytics::Mgmt::V2016_11_01
             class_name: 'AddStorageAccountParameters',
             model_properties: {
               access_key: {
-                client_side_validation: true,
                 required: true,
                 serialized_name: 'properties.accessKey',
                 type: {
@@ -43,7 +40,6 @@ module Azure::DataLakeAnalytics::Mgmt::V2016_11_01
                 }
               },
               suffix: {
-                client_side_validation: true,
                 required: false,
                 serialized_name: 'properties.suffix',
                 type: {

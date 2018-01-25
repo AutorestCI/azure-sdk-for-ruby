@@ -16,18 +16,26 @@ module Azure::DataLakeAnalytics::Mgmt::V2016_11_01
       # @return [Hash{String => String}] Resource tags
       attr_accessor :tags
 
-      # @return [Integer] the maximum supported degree of parallelism for this
+      # @return [Integer] The maximum supported degree of parallelism for this
       # account.
       attr_accessor :max_degree_of_parallelism
 
-      # @return [Integer] the number of days that job metadata is retained.
+      # @return [Integer] The number of days that job metadata is retained.
       attr_accessor :query_store_retention
 
-      # @return [Integer] the maximum supported jobs running under the account
+      # @return [Integer] The maximum supported jobs running under the account
       # at the same time.
       attr_accessor :max_job_count
 
-      # @return [TierType] the commitment tier to use for next month. Possible
+      # @return [Array<UpdateDataLakeStoreWithAccountParameters>] The list of
+      # Data Lake Store accounts associated with this account.
+      attr_accessor :data_lake_store_accounts
+
+      # @return [Array<UpdateStorageAccountWithAccountParameters>] The list of
+      # Azure Blob storage accounts associated with this account.
+      attr_accessor :storage_accounts
+
+      # @return [TierType] The commitment tier to use for next month. Possible
       # values include: 'Consumption', 'Commitment_100AUHours',
       # 'Commitment_500AUHours', 'Commitment_1000AUHours',
       # 'Commitment_5000AUHours', 'Commitment_10000AUHours',
@@ -46,20 +54,20 @@ module Azure::DataLakeAnalytics::Mgmt::V2016_11_01
       # 'Enabled', 'Disabled'
       attr_accessor :firewall_allow_azure_ips
 
-      # @return [Array<FirewallRule>] The list of firewall rules associated
-      # with this Data Lake Analytics account.
+      # @return [Array<UpdateFirewallRuleWithAccountParameters>] The list of
+      # firewall rules associated with this Data Lake Analytics account.
       attr_accessor :firewall_rules
 
-      # @return [Integer] the maximum supported degree of parallelism per job
+      # @return [Integer] The maximum supported degree of parallelism per job
       # for this account.
       attr_accessor :max_degree_of_parallelism_per_job
 
-      # @return [Integer] the minimum supported priority per job for this
+      # @return [Integer] The minimum supported priority per job for this
       # account.
       attr_accessor :min_priority_per_job
 
-      # @return [Array<ComputePolicy>] the list of existing compute policies to
-      # update in this account.
+      # @return [Array<UpdateComputePolicyWithAccountParameters>] The list of
+      # compute policies associated with this account.
       attr_accessor :compute_policies
 
 
@@ -69,7 +77,6 @@ module Azure::DataLakeAnalytics::Mgmt::V2016_11_01
       #
       def self.mapper()
         {
-          client_side_validation: true,
           required: false,
           serialized_name: 'DataLakeAnalyticsAccountUpdateParameters',
           type: {
@@ -77,13 +84,11 @@ module Azure::DataLakeAnalytics::Mgmt::V2016_11_01
             class_name: 'DataLakeAnalyticsAccountUpdateParameters',
             model_properties: {
               tags: {
-                client_side_validation: true,
                 required: false,
                 serialized_name: 'tags',
                 type: {
                   name: 'Dictionary',
                   value: {
-                      client_side_validation: true,
                       required: false,
                       serialized_name: 'StringElementType',
                       type: {
@@ -93,7 +98,6 @@ module Azure::DataLakeAnalytics::Mgmt::V2016_11_01
                 }
               },
               max_degree_of_parallelism: {
-                client_side_validation: true,
                 required: false,
                 serialized_name: 'properties.maxDegreeOfParallelism',
                 constraints: {
@@ -104,7 +108,6 @@ module Azure::DataLakeAnalytics::Mgmt::V2016_11_01
                 }
               },
               query_store_retention: {
-                client_side_validation: true,
                 required: false,
                 serialized_name: 'properties.queryStoreRetention',
                 constraints: {
@@ -116,7 +119,6 @@ module Azure::DataLakeAnalytics::Mgmt::V2016_11_01
                 }
               },
               max_job_count: {
-                client_side_validation: true,
                 required: false,
                 serialized_name: 'properties.maxJobCount',
                 constraints: {
@@ -126,8 +128,37 @@ module Azure::DataLakeAnalytics::Mgmt::V2016_11_01
                   name: 'Number'
                 }
               },
+              data_lake_store_accounts: {
+                required: false,
+                serialized_name: 'properties.dataLakeStoreAccounts',
+                type: {
+                  name: 'Sequence',
+                  element: {
+                      required: false,
+                      serialized_name: 'UpdateDataLakeStoreWithAccountParametersElementType',
+                      type: {
+                        name: 'Composite',
+                        class_name: 'UpdateDataLakeStoreWithAccountParameters'
+                      }
+                  }
+                }
+              },
+              storage_accounts: {
+                required: false,
+                serialized_name: 'properties.storageAccounts',
+                type: {
+                  name: 'Sequence',
+                  element: {
+                      required: false,
+                      serialized_name: 'UpdateStorageAccountWithAccountParametersElementType',
+                      type: {
+                        name: 'Composite',
+                        class_name: 'UpdateStorageAccountWithAccountParameters'
+                      }
+                  }
+                }
+              },
               new_tier: {
-                client_side_validation: true,
                 required: false,
                 serialized_name: 'properties.newTier',
                 type: {
@@ -136,7 +167,6 @@ module Azure::DataLakeAnalytics::Mgmt::V2016_11_01
                 }
               },
               firewall_state: {
-                client_side_validation: true,
                 required: false,
                 serialized_name: 'properties.firewallState',
                 type: {
@@ -145,7 +175,6 @@ module Azure::DataLakeAnalytics::Mgmt::V2016_11_01
                 }
               },
               firewall_allow_azure_ips: {
-                client_side_validation: true,
                 required: false,
                 serialized_name: 'properties.firewallAllowAzureIps',
                 type: {
@@ -154,24 +183,21 @@ module Azure::DataLakeAnalytics::Mgmt::V2016_11_01
                 }
               },
               firewall_rules: {
-                client_side_validation: true,
                 required: false,
                 serialized_name: 'properties.firewallRules',
                 type: {
                   name: 'Sequence',
                   element: {
-                      client_side_validation: true,
                       required: false,
-                      serialized_name: 'FirewallRuleElementType',
+                      serialized_name: 'UpdateFirewallRuleWithAccountParametersElementType',
                       type: {
                         name: 'Composite',
-                        class_name: 'FirewallRule'
+                        class_name: 'UpdateFirewallRuleWithAccountParameters'
                       }
                   }
                 }
               },
               max_degree_of_parallelism_per_job: {
-                client_side_validation: true,
                 required: false,
                 serialized_name: 'properties.maxDegreeOfParallelismPerJob',
                 constraints: {
@@ -182,7 +208,6 @@ module Azure::DataLakeAnalytics::Mgmt::V2016_11_01
                 }
               },
               min_priority_per_job: {
-                client_side_validation: true,
                 required: false,
                 serialized_name: 'properties.minPriorityPerJob',
                 constraints: {
@@ -193,18 +218,16 @@ module Azure::DataLakeAnalytics::Mgmt::V2016_11_01
                 }
               },
               compute_policies: {
-                client_side_validation: true,
                 required: false,
                 serialized_name: 'properties.computePolicies',
                 type: {
                   name: 'Sequence',
                   element: {
-                      client_side_validation: true,
                       required: false,
-                      serialized_name: 'ComputePolicyElementType',
+                      serialized_name: 'UpdateComputePolicyWithAccountParametersElementType',
                       type: {
                         name: 'Composite',
-                        class_name: 'ComputePolicy'
+                        class_name: 'UpdateComputePolicyWithAccountParameters'
                       }
                   }
                 }

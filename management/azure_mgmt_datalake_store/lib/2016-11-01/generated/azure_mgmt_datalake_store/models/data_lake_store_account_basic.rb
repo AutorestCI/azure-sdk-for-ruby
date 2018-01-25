@@ -12,23 +12,23 @@ module Azure::DataLakeStore::Mgmt::V2016_11_01
 
       include MsRestAzure
 
-      # @return [DataLakeStoreAccountStatus] the provisioning status of the
+      # @return [DataLakeStoreAccountStatus] The provisioning status of the
       # Data Lake Store account. Possible values include: 'Failed', 'Creating',
       # 'Running', 'Succeeded', 'Patching', 'Suspending', 'Resuming',
       # 'Deleting', 'Deleted', 'Undeleting', 'Canceled'
       attr_accessor :provisioning_state
 
-      # @return [DataLakeStoreAccountState] the state of the Data Lake Store
+      # @return [DataLakeStoreAccountState] The state of the Data Lake Store
       # account. Possible values include: 'Active', 'Suspended'
       attr_accessor :state
 
-      # @return [DateTime] the account creation time.
+      # @return [DateTime] The account creation time.
       attr_accessor :creation_time
 
-      # @return [DateTime] the account last modified time.
+      # @return [DateTime] The account last modified time.
       attr_accessor :last_modified_time
 
-      # @return [String] the full CName endpoint for this account.
+      # @return [String] The full CName endpoint for this account.
       attr_accessor :endpoint
 
       # @return The unique identifier associated with this Data Lake Store
@@ -42,7 +42,6 @@ module Azure::DataLakeStore::Mgmt::V2016_11_01
       #
       def self.mapper()
         {
-          client_side_validation: true,
           required: false,
           serialized_name: 'DataLakeStoreAccountBasic',
           type: {
@@ -50,7 +49,6 @@ module Azure::DataLakeStore::Mgmt::V2016_11_01
             class_name: 'DataLakeStoreAccountBasic',
             model_properties: {
               id: {
-                client_side_validation: true,
                 required: false,
                 read_only: true,
                 serialized_name: 'id',
@@ -59,7 +57,6 @@ module Azure::DataLakeStore::Mgmt::V2016_11_01
                 }
               },
               name: {
-                client_side_validation: true,
                 required: false,
                 read_only: true,
                 serialized_name: 'name',
@@ -68,7 +65,6 @@ module Azure::DataLakeStore::Mgmt::V2016_11_01
                 }
               },
               type: {
-                client_side_validation: true,
                 required: false,
                 read_only: true,
                 serialized_name: 'type',
@@ -77,7 +73,6 @@ module Azure::DataLakeStore::Mgmt::V2016_11_01
                 }
               },
               location: {
-                client_side_validation: true,
                 required: true,
                 serialized_name: 'location',
                 type: {
@@ -85,13 +80,11 @@ module Azure::DataLakeStore::Mgmt::V2016_11_01
                 }
               },
               tags: {
-                client_side_validation: true,
                 required: false,
                 serialized_name: 'tags',
                 type: {
                   name: 'Dictionary',
                   value: {
-                      client_side_validation: true,
                       required: false,
                       serialized_name: 'StringElementType',
                       type: {
@@ -101,7 +94,6 @@ module Azure::DataLakeStore::Mgmt::V2016_11_01
                 }
               },
               provisioning_state: {
-                client_side_validation: true,
                 required: false,
                 read_only: true,
                 serialized_name: 'properties.provisioningState',
@@ -111,7 +103,6 @@ module Azure::DataLakeStore::Mgmt::V2016_11_01
                 }
               },
               state: {
-                client_side_validation: true,
                 required: false,
                 read_only: true,
                 serialized_name: 'properties.state',
@@ -121,7 +112,6 @@ module Azure::DataLakeStore::Mgmt::V2016_11_01
                 }
               },
               creation_time: {
-                client_side_validation: true,
                 required: false,
                 read_only: true,
                 serialized_name: 'properties.creationTime',
@@ -130,7 +120,6 @@ module Azure::DataLakeStore::Mgmt::V2016_11_01
                 }
               },
               last_modified_time: {
-                client_side_validation: true,
                 required: false,
                 read_only: true,
                 serialized_name: 'properties.lastModifiedTime',
@@ -139,7 +128,6 @@ module Azure::DataLakeStore::Mgmt::V2016_11_01
                 }
               },
               endpoint: {
-                client_side_validation: true,
                 required: false,
                 read_only: true,
                 serialized_name: 'properties.endpoint',
@@ -148,7 +136,6 @@ module Azure::DataLakeStore::Mgmt::V2016_11_01
                 }
               },
               account_id: {
-                client_side_validation: true,
                 required: false,
                 read_only: true,
                 serialized_name: 'properties.accountId',

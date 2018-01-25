@@ -31,8 +31,8 @@ module Azure::DataLakeAnalytics::Mgmt::V2016_11_01
     # add or replace the firewall rule.
     # @param firewall_rule_name [String] The name of the firewall rule to create or
     # update.
-    # @param parameters [FirewallRule] Parameters supplied to create or update the
-    # firewall rule.
+    # @param parameters [CreateOrUpdateFirewallRuleParameters] Parameters supplied
+    # to create or update the firewall rule.
     # @param custom_headers [Hash{String => String}] A hash of custom headers that
     # will be added to the HTTP request.
     #
@@ -53,8 +53,8 @@ module Azure::DataLakeAnalytics::Mgmt::V2016_11_01
     # add or replace the firewall rule.
     # @param firewall_rule_name [String] The name of the firewall rule to create or
     # update.
-    # @param parameters [FirewallRule] Parameters supplied to create or update the
-    # firewall rule.
+    # @param parameters [CreateOrUpdateFirewallRuleParameters] Parameters supplied
+    # to create or update the firewall rule.
     # @param custom_headers [Hash{String => String}] A hash of custom headers that
     # will be added to the HTTP request.
     #
@@ -74,8 +74,8 @@ module Azure::DataLakeAnalytics::Mgmt::V2016_11_01
     # add or replace the firewall rule.
     # @param firewall_rule_name [String] The name of the firewall rule to create or
     # update.
-    # @param parameters [FirewallRule] Parameters supplied to create or update the
-    # firewall rule.
+    # @param parameters [CreateOrUpdateFirewallRuleParameters] Parameters supplied
+    # to create or update the firewall rule.
     # @param [Hash{String => String}] A hash of custom headers that will be added
     # to the HTTP request.
     #
@@ -99,7 +99,7 @@ module Azure::DataLakeAnalytics::Mgmt::V2016_11_01
       request_headers['Content-Type'] = 'application/json; charset=utf-8'
 
       # Serialize Request
-      request_mapper = Azure::DataLakeAnalytics::Mgmt::V2016_11_01::Models::FirewallRule.mapper()
+      request_mapper = Azure::DataLakeAnalytics::Mgmt::V2016_11_01::Models::CreateOrUpdateFirewallRuleParameters.mapper()
       request_content = @client.serialize(request_mapper,  parameters)
       request_content = request_content != nil ? JSON.generate(request_content, quirks_mode: true) : nil
 

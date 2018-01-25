@@ -6,9 +6,9 @@
 module Azure::DataLakeAnalytics::Mgmt::V2016_11_01
   module Models
     #
-    # The parameters used to create a new compute policy.
+    # The parameters used to update a compute policy.
     #
-    class ComputePolicyCreateOrUpdateParameters
+    class UpdateComputePolicyParameters
 
       include MsRestAzure
 
@@ -32,36 +32,32 @@ module Azure::DataLakeAnalytics::Mgmt::V2016_11_01
 
 
       #
-      # Mapper for ComputePolicyCreateOrUpdateParameters class as Ruby Hash.
+      # Mapper for UpdateComputePolicyParameters class as Ruby Hash.
       # This will be used for serialization/deserialization.
       #
       def self.mapper()
         {
-          client_side_validation: true,
           required: false,
-          serialized_name: 'ComputePolicyCreateOrUpdateParameters',
+          serialized_name: 'UpdateComputePolicyParameters',
           type: {
             name: 'Composite',
-            class_name: 'ComputePolicyCreateOrUpdateParameters',
+            class_name: 'UpdateComputePolicyParameters',
             model_properties: {
               object_id: {
-                client_side_validation: true,
-                required: true,
+                required: false,
                 serialized_name: 'properties.objectId',
                 type: {
                   name: 'String'
                 }
               },
               object_type: {
-                client_side_validation: true,
-                required: true,
+                required: false,
                 serialized_name: 'properties.objectType',
                 type: {
                   name: 'String'
                 }
               },
               max_degree_of_parallelism_per_job: {
-                client_side_validation: true,
                 required: false,
                 serialized_name: 'properties.maxDegreeOfParallelismPerJob',
                 constraints: {
@@ -72,7 +68,6 @@ module Azure::DataLakeAnalytics::Mgmt::V2016_11_01
                 }
               },
               min_priority_per_job: {
-                client_side_validation: true,
                 required: false,
                 serialized_name: 'properties.minPriorityPerJob',
                 constraints: {
