@@ -113,13 +113,11 @@ module Azure::SQL::Mgmt::V2015_05_01_preview
           begin
             parsed_response = response_content.to_s.empty? ? nil : JSON.load(response_content)
             result_mapper = {
-              client_side_validation: true,
               required: false,
               serialized_name: 'parsed_response',
               type: {
                 name: 'Sequence',
                 element: {
-                    client_side_validation: true,
                     required: false,
                     serialized_name: 'AdvisorElementType',
                     type: {
@@ -312,11 +310,11 @@ module Azure::SQL::Mgmt::V2015_05_01_preview
 
       request_headers = {}
 
-      request_headers['Content-Type'] = 'application/json; charset=utf-8'
-
       # Set Headers
       request_headers['x-ms-client-request-id'] = SecureRandom.uuid
       request_headers['accept-language'] = @client.accept_language unless @client.accept_language.nil?
+
+      request_headers['Content-Type'] = 'application/json; charset=utf-8'
 
       # Serialize Request
       request_mapper = Azure::SQL::Mgmt::V2015_05_01_preview::Models::Advisor.mapper()
