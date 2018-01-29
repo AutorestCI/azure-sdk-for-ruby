@@ -72,13 +72,13 @@
             "pipe": "/tmp/pipe__root_.autorest.busy-lock:37199"
           },
           "personalLock": {
-            "name": "_root_.autorest.5872.560025581097.personal-lock",
+            "name": "_root_.autorest.1267.1345437467908.personal-lock",
             "options": {
-              "port": 24386,
-              "host": "2130722325",
+              "port": 64341,
+              "host": "2130765462",
               "exclusive": true
             },
-            "pipe": "/tmp/pipe__root_.autorest.5872.560025581097.personal-lock:24386"
+            "pipe": "/tmp/pipe__root_.autorest.1267.1345437467908.personal-lock:64341"
           },
           "file": "/tmp/_root_.autorest.lock"
         },
@@ -155,13 +155,13 @@
             "pipe": "/tmp/pipe__root_.autorest.busy-lock:37199"
           },
           "personalLock": {
-            "name": "_root_.autorest.5872.560025581097.personal-lock",
+            "name": "_root_.autorest.1267.1345437467908.personal-lock",
             "options": {
-              "port": 24386,
-              "host": "2130722325",
+              "port": 64341,
+              "host": "2130765462",
               "exclusive": true
             },
-            "pipe": "/tmp/pipe__root_.autorest.5872.560025581097.personal-lock:24386"
+            "pipe": "/tmp/pipe__root_.autorest.1267.1345437467908.personal-lock:64341"
           },
           "file": "/tmp/_root_.autorest.lock"
         },
@@ -238,13 +238,13 @@
             "pipe": "/tmp/pipe__root_.autorest.busy-lock:37199"
           },
           "personalLock": {
-            "name": "_root_.autorest.5872.560025581097.personal-lock",
+            "name": "_root_.autorest.1267.1345437467908.personal-lock",
             "options": {
-              "port": 24386,
-              "host": "2130722325",
+              "port": 64341,
+              "host": "2130765462",
               "exclusive": true
             },
-            "pipe": "/tmp/pipe__root_.autorest.5872.560025581097.personal-lock:24386"
+            "pipe": "/tmp/pipe__root_.autorest.1267.1345437467908.personal-lock:64341"
           },
           "file": "/tmp/_root_.autorest.lock"
         },
@@ -323,13 +323,13 @@
             "pipe": "/tmp/pipe__root_.autorest.busy-lock:37199"
           },
           "personalLock": {
-            "name": "_root_.autorest.5872.560025581097.personal-lock",
+            "name": "_root_.autorest.1267.1345437467908.personal-lock",
             "options": {
-              "port": 24386,
-              "host": "2130722325",
+              "port": 64341,
+              "host": "2130765462",
               "exclusive": true
             },
-            "pipe": "/tmp/pipe__root_.autorest.5872.560025581097.personal-lock:24386"
+            "pipe": "/tmp/pipe__root_.autorest.1267.1345437467908.personal-lock:64341"
           },
           "file": "/tmp/_root_.autorest.lock"
         },
