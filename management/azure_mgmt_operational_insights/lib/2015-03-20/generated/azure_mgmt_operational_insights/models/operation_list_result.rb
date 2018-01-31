@@ -6,39 +6,29 @@
 module Azure::OperationalInsights::Mgmt::V2015_03_20
   module Models
     #
-    # The get schema operation response.
+    # Result of the request to list solution operations.
     #
-    class SearchGetSchemaResponse
+    class OperationListResult
 
       include MsRestAzure
 
-      # @return [SearchMetadata] The metadata from search results.
-      attr_accessor :metadata
-
-      # @return [Array<SearchSchemaValue>] The array of result values.
+      # @return [Array<Operation>] List of solution operations supported by the
+      # OperationsManagement resource provider.
       attr_accessor :value
 
 
       #
-      # Mapper for SearchGetSchemaResponse class as Ruby Hash.
+      # Mapper for OperationListResult class as Ruby Hash.
       # This will be used for serialization/deserialization.
       #
       def self.mapper()
         {
           required: false,
-          serialized_name: 'SearchGetSchemaResponse',
+          serialized_name: 'OperationListResult',
           type: {
             name: 'Composite',
-            class_name: 'SearchGetSchemaResponse',
+            class_name: 'OperationListResult',
             model_properties: {
-              metadata: {
-                required: false,
-                serialized_name: 'metadata',
-                type: {
-                  name: 'Composite',
-                  class_name: 'SearchMetadata'
-                }
-              },
               value: {
                 required: false,
                 serialized_name: 'value',
@@ -46,10 +36,10 @@ module Azure::OperationalInsights::Mgmt::V2015_03_20
                   name: 'Sequence',
                   element: {
                       required: false,
-                      serialized_name: 'SearchSchemaValueElementType',
+                      serialized_name: 'OperationElementType',
                       type: {
                         name: 'Composite',
-                        class_name: 'SearchSchemaValue'
+                        class_name: 'Operation'
                       }
                   }
                 }

@@ -6,52 +6,51 @@
 module Azure::OperationalInsights::Mgmt::V2015_11_01_preview
   module Models
     #
-    # Intelligence Pack containing a string name and boolean indicating if it's
-    # enabled.
+    # Display metadata associated with the operation.
     #
-    class IntelligencePack
+    class OperationDisplay
 
       include MsRestAzure
 
-      # @return [String] The name of the intelligence pack.
-      attr_accessor :name
+      # @return [String] Service provider: Microsoft OperationsManagement.
+      attr_accessor :provider
 
-      # @return [Boolean] The enabled boolean for the intelligence pack.
-      attr_accessor :enabled
+      # @return [String] Resource on which the operation is performed etc.
+      attr_accessor :resource
 
-      # @return [String] The display name of the intelligence pack.
-      attr_accessor :display_name
+      # @return [String] Type of operation: get, read, delete, etc.
+      attr_accessor :operation
 
 
       #
-      # Mapper for IntelligencePack class as Ruby Hash.
+      # Mapper for OperationDisplay class as Ruby Hash.
       # This will be used for serialization/deserialization.
       #
       def self.mapper()
         {
           required: false,
-          serialized_name: 'IntelligencePack',
+          serialized_name: 'Operation_display',
           type: {
             name: 'Composite',
-            class_name: 'IntelligencePack',
+            class_name: 'OperationDisplay',
             model_properties: {
-              name: {
+              provider: {
                 required: false,
-                serialized_name: 'name',
+                serialized_name: 'provider',
                 type: {
                   name: 'String'
                 }
               },
-              enabled: {
+              resource: {
                 required: false,
-                serialized_name: 'enabled',
+                serialized_name: 'resource',
                 type: {
-                  name: 'Boolean'
+                  name: 'String'
                 }
               },
-              display_name: {
+              operation: {
                 required: false,
-                serialized_name: 'displayName',
+                serialized_name: 'operation',
                 type: {
                   name: 'String'
                 }

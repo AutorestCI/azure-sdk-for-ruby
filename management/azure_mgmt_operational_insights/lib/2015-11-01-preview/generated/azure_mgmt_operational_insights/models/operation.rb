@@ -3,46 +3,48 @@
 # Changes may cause incorrect behavior and will be lost if the code is
 # regenerated.
 
-module Azure::OperationalInsights::Mgmt::V2015_03_20
+module Azure::OperationalInsights::Mgmt::V2015_11_01_preview
   module Models
     #
-    # Highlight details.
+    # Supported operation of OperationalInsights resource provider.
     #
-    class SearchHighlight
+    class Operation
 
       include MsRestAzure
 
-      # @return [String] The string that is put before a matched result.
-      attr_accessor :pre
+      # @return [String] Operation name: {provider}/{resource}/{operation}
+      attr_accessor :name
 
-      # @return [String] The string that is put after a matched result.
-      attr_accessor :post
+      # @return [OperationDisplay] Display metadata associated with the
+      # operation.
+      attr_accessor :display
 
 
       #
-      # Mapper for SearchHighlight class as Ruby Hash.
+      # Mapper for Operation class as Ruby Hash.
       # This will be used for serialization/deserialization.
       #
       def self.mapper()
         {
           required: false,
-          serialized_name: 'SearchHighlight',
+          serialized_name: 'Operation',
           type: {
             name: 'Composite',
-            class_name: 'SearchHighlight',
+            class_name: 'Operation',
             model_properties: {
-              pre: {
+              name: {
                 required: false,
-                serialized_name: 'pre',
+                serialized_name: 'name',
                 type: {
                   name: 'String'
                 }
               },
-              post: {
+              display: {
                 required: false,
-                serialized_name: 'post',
+                serialized_name: 'display',
                 type: {
-                  name: 'String'
+                  name: 'Composite',
+                  class_name: 'OperationDisplay'
                 }
               }
             }

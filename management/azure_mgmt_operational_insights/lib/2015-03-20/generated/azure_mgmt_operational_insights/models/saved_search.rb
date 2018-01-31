@@ -15,8 +15,14 @@ module Azure::OperationalInsights::Mgmt::V2015_03_20
       # @return [String] The id of the saved search.
       attr_accessor :id
 
+      # @return [String] The name of the saved search.
+      attr_accessor :name
+
+      # @return [String] The type of the saved search.
+      attr_accessor :type
+
       # @return [String] The etag of the saved search.
-      attr_accessor :etag
+      attr_accessor :e_tag
 
       # @return [String] The category of the saved search. This helps the user
       # to find a saved search faster.
@@ -44,7 +50,6 @@ module Azure::OperationalInsights::Mgmt::V2015_03_20
       #
       def self.mapper()
         {
-          client_side_validation: true,
           required: false,
           serialized_name: 'SavedSearch',
           type: {
@@ -52,7 +57,6 @@ module Azure::OperationalInsights::Mgmt::V2015_03_20
             class_name: 'SavedSearch',
             model_properties: {
               id: {
-                client_side_validation: true,
                 required: false,
                 read_only: true,
                 serialized_name: 'id',
@@ -60,42 +64,53 @@ module Azure::OperationalInsights::Mgmt::V2015_03_20
                   name: 'String'
                 }
               },
-              etag: {
-                client_side_validation: true,
+              name: {
                 required: false,
-                serialized_name: 'etag',
+                read_only: true,
+                serialized_name: 'name',
+                type: {
+                  name: 'String'
+                }
+              },
+              type: {
+                required: false,
+                read_only: true,
+                serialized_name: 'type',
+                type: {
+                  name: 'String'
+                }
+              },
+              e_tag: {
+                required: false,
+                serialized_name: 'eTag',
                 type: {
                   name: 'String'
                 }
               },
               category: {
-                client_side_validation: true,
                 required: true,
-                serialized_name: 'properties.Category',
+                serialized_name: 'properties.category',
                 type: {
                   name: 'String'
                 }
               },
               display_name: {
-                client_side_validation: true,
                 required: true,
-                serialized_name: 'properties.DisplayName',
+                serialized_name: 'properties.displayName',
                 type: {
                   name: 'String'
                 }
               },
               query: {
-                client_side_validation: true,
                 required: true,
-                serialized_name: 'properties.Query',
+                serialized_name: 'properties.query',
                 type: {
                   name: 'String'
                 }
               },
               version: {
-                client_side_validation: true,
                 required: true,
-                serialized_name: 'properties.Version',
+                serialized_name: 'properties.version',
                 constraints: {
                   InclusiveMaximum: 1,
                   InclusiveMinimum: 1
@@ -105,13 +120,11 @@ module Azure::OperationalInsights::Mgmt::V2015_03_20
                 }
               },
               tags: {
-                client_side_validation: true,
                 required: false,
-                serialized_name: 'properties.Tags',
+                serialized_name: 'properties.tags',
                 type: {
                   name: 'Sequence',
                   element: {
-                      client_side_validation: true,
                       required: false,
                       serialized_name: 'TagElementType',
                       type: {

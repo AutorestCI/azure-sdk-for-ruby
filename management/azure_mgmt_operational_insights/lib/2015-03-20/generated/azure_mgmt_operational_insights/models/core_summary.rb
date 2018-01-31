@@ -25,7 +25,6 @@ module Azure::OperationalInsights::Mgmt::V2015_03_20
       #
       def self.mapper()
         {
-          client_side_validation: true,
           required: false,
           serialized_name: 'CoreSummary',
           type: {
@@ -33,17 +32,15 @@ module Azure::OperationalInsights::Mgmt::V2015_03_20
             class_name: 'CoreSummary',
             model_properties: {
               status: {
-                client_side_validation: true,
                 required: false,
-                serialized_name: 'Status',
+                serialized_name: 'status',
                 type: {
                   name: 'String'
                 }
               },
               number_of_documents: {
-                client_side_validation: true,
                 required: true,
-                serialized_name: 'NumberOfDocuments',
+                serialized_name: 'numberOfDocuments',
                 type: {
                   name: 'Number'
                 }

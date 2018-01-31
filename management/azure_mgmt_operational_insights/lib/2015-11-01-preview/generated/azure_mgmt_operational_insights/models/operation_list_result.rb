@@ -3,22 +3,23 @@
 # Changes may cause incorrect behavior and will be lost if the code is
 # regenerated.
 
-module Azure::OperationalInsights::Mgmt::V2015_03_20
+module Azure::OperationalInsights::Mgmt::V2015_11_01_preview
   module Models
     #
-    # The list storage insights operation response.
+    # Result of the request to list solution operations.
     #
-    class StorageInsightListResult
+    class OperationListResult
 
       include MsRestAzure
 
       include MsRest::JSONable
-      # @return [Array<StorageInsight>] Gets or sets a list of storage insight
-      # instances.
+      # @return [Array<Operation>] List of solution operations supported by the
+      # OperationsManagement resource provider.
       attr_accessor :value
 
-      # @return [String] The link (url) to the next page of results.
-      attr_accessor :odata_next_link
+      # @return [String] URL to get the next set of operation list results if
+      # there are any.
+      attr_accessor :next_link
 
       # return [Proc] with next page method call.
       attr_accessor :next_method
@@ -26,12 +27,12 @@ module Azure::OperationalInsights::Mgmt::V2015_03_20
       #
       # Gets the rest of the items for the request, enabling auto-pagination.
       #
-      # @return [Array<StorageInsight>] operation results.
+      # @return [Array<Operation>] operation results.
       #
       def get_all_items
         items = @value
         page = self
-        while page.odatanext_link != nil do
+        while page.next_link != nil do
           page = page.get_next_page
           items.concat(page.value)
         end
@@ -41,28 +42,28 @@ module Azure::OperationalInsights::Mgmt::V2015_03_20
       #
       # Gets the next page of results.
       #
-      # @return [StorageInsightListResult] with next page content.
+      # @return [OperationListResult] with next page content.
       #
       def get_next_page
-        response = @next_method.call(@odatanext_link).value! unless @next_method.nil?
+        response = @next_method.call(@next_link).value! unless @next_method.nil?
         unless response.nil?
-          @odatanext_link = response.body.odatanext_link
+          @next_link = response.body.next_link
           @value = response.body.value
           self
         end
       end
 
       #
-      # Mapper for StorageInsightListResult class as Ruby Hash.
+      # Mapper for OperationListResult class as Ruby Hash.
       # This will be used for serialization/deserialization.
       #
       def self.mapper()
         {
           required: false,
-          serialized_name: 'StorageInsightListResult',
+          serialized_name: 'OperationListResult',
           type: {
             name: 'Composite',
-            class_name: 'StorageInsightListResult',
+            class_name: 'OperationListResult',
             model_properties: {
               value: {
                 required: false,
@@ -71,17 +72,18 @@ module Azure::OperationalInsights::Mgmt::V2015_03_20
                   name: 'Sequence',
                   element: {
                       required: false,
-                      serialized_name: 'StorageInsightElementType',
+                      serialized_name: 'OperationElementType',
                       type: {
                         name: 'Composite',
-                        class_name: 'StorageInsight'
+                        class_name: 'Operation'
                       }
                   }
                 }
               },
-              odata_next_link: {
+              next_link: {
                 required: false,
-                serialized_name: '@odata\\.nextLink',
+                read_only: true,
+                serialized_name: 'nextLink',
                 type: {
                   name: 'String'
                 }

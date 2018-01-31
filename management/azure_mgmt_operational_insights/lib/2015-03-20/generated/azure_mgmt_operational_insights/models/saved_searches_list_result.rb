@@ -25,7 +25,6 @@ module Azure::OperationalInsights::Mgmt::V2015_03_20
       #
       def self.mapper()
         {
-          client_side_validation: true,
           required: false,
           serialized_name: 'SavedSearchesListResult',
           type: {
@@ -33,22 +32,19 @@ module Azure::OperationalInsights::Mgmt::V2015_03_20
             class_name: 'SavedSearchesListResult',
             model_properties: {
               metadata: {
-                client_side_validation: true,
                 required: false,
-                serialized_name: '__metadata',
+                serialized_name: 'metaData',
                 type: {
                   name: 'Composite',
                   class_name: 'SearchMetadata'
                 }
               },
               value: {
-                client_side_validation: true,
                 required: false,
                 serialized_name: 'value',
                 type: {
                   name: 'Sequence',
                   element: {
-                      client_side_validation: true,
                       required: false,
                       serialized_name: 'SavedSearchElementType',
                       type: {
